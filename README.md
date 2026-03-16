@@ -19,6 +19,7 @@ I upload new code every day — follow along! 🚀
 | Day | Topic | File |
 |-----|-------|------|
 | Day 1 | Variables & Print Statements | day1_of100.py |
+| Project 1 | Student Grade Calculator | grade_calculator.py |
 | Day 2 | Data Types | day2_of100.py |
 | Day 3 | Coming soon... | — |
 
