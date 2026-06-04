@@ -1,5 +1,5 @@
 # python-practice
-# 🐍 Python Practice — 100 Days of Code
+# 🐍 Python Practice 
 
 My Python learning journey as a BS AI student at 
 Ghazi University DG Khan, Pakistan 🇵🇰
