@@ -1,12 +1,11 @@
 # ==========================================
-# Day 1 of 100 Days of Code
 # Topic: Variables & Print Statements
 # By: Rania Rashid — BS AI, Ghazi University
 # ==========================================
 
 # A variable stores information
 name = "Rania Rashid"        # string variable (text)
-age = 20                      # integer variable (whole number)
+age = 17                      # integer variable (whole number)
 university = "Ghazi University DG Khan"  # string variable
 semester = 2                  # integer variable
 

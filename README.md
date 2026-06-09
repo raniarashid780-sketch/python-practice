@@ -5,7 +5,7 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 ## Code
 | File | Topic |
 |------|-------|
-| day1_of100.py | Variables & Print Statements |
+| 01_variables_and_print.py | Variables & Print Statements |
 | grade_calculator.py | Student Grade Calculator |
 
 ## Topics I'm Covering
