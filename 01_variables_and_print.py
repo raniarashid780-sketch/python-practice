@@ -27,4 +27,4 @@ print(f"Hi! I am {name}, an AI student at {university} 🚀")
 # 2. String = text, Integer = whole number
 # 3. print() shows output
 # 4. f-strings combine text and variables
-# ==========================================x
+# =========================================="

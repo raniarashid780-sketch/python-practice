@@ -34,7 +34,7 @@ else:
     print("Fail")
 
 # ─────────────────────────────────────────────
-# CONCEPT 3: Nested Conditions
+# CONCEPT 3: Nested Conditions (Method 1)
 # A condition inside another condition.
 # WARNING: Deep nesting makes code unreadable — know when to stop.
 # ─────────────────────────────────────────────
@@ -50,19 +50,20 @@ else:
     print("You are not eligible to vote yet.")
 
 
-
 # ─────────────────────────────────────────────
-# CONCEPT 4: Logical Operators
+# CONCEPT 4: Logical Operators (Better Method)
 # and  → both conditions must be True
 # or   → at least one must be True
 # not  → flips True to False, False to True
+# This is CLEANER than nested conditions above!
 # ─────────────────────────────────────────────
 
+# Using logical operators (same problem, cleaner code):
 voter_age = int(input("Enter your age: "))
 is_registered = input("Are you registered to vote? (yes/no): ").lower() == "yes"
 if voter_age >= 18 and is_registered:
     print("You are eligible to vote!")
-elif voter_age >= 18 and not is_registered: 
+elif voter_age >= 18 and not is_registered:
     print("You are eligible but not registered to vote.")
 else:
     print("You are not eligible to vote yet.")      
