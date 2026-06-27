@@ -14,6 +14,7 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 02 | Data Types | `02_data_types.py` | ✅ Complete |
 | 03 | Conditions & If/Else | `03_conditions.py` | ✅ Complete |
 | 04 | Loops | `04_loops.py` | ✅ Complete |
+| 0 | Functions | `05_functions.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
