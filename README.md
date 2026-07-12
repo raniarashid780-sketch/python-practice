@@ -16,6 +16,7 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 04 | Loops | `04_loops.py` | ✅ Complete |
 | 05 | Functions | `05_functions.py` | ✅ Complete |
 | 06 | Lists & Dictionaries | `06_lists_and_dictionaries.py` | ✅ Complete |
+| 07 | Object Oriented Programming | `07_Object_oriented_programming.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
@@ -46,9 +47,9 @@ python 02_data_types.py
 ## 📚 Topics I'm Covering
 - ✅ Variables & Print Statements
 - ✅ Conditions & If/Else
-- 🔄 Loops
-- 🔄 Functions
-- 🔄 Lists & Dictionaries
+- ✅ Loops
+- ✅ Functions
+- ✅ Lists & Dictionaries
 - 🔄 Object Oriented Programming
 - 🔄 File Handling
 
