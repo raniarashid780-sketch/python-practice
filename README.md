@@ -18,6 +18,7 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 06 | Lists & Dictionaries | `06_lists_and_dictionaries.py` | ✅ Complete |
 | 07 | Object Oriented Programming | `07_Object_oriented_programming.py` | ✅ Complete |
 | 08 | File Handling | `08_filehandling.py` | ✅ Complete |
+| 09 | NumPy Basics | `09_numpy_basics.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
@@ -53,6 +54,7 @@ python 02_data_types.py
 - ✅ Lists & Dictionaries
 - ✅ Object Oriented Programming
 - ✅ File Handling
+- ✅ NumPy Basics
 
 ## 👩‍💻 Author
 
