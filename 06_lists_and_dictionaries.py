@@ -72,7 +72,7 @@ print("Last 3 items:", numbers[-3:])
 # Create a dictionary
 student = {
     "name": "Rania Rashid",
-    "age": 20,
+    "age": 18,
     "university": "Ghazi University",
     "program": "BS AI"
 }
@@ -93,7 +93,7 @@ student["city"] = "DG Khan"
 print("After adding city:", student)
 
 # Modify an existing value
-student["age"] = 21
+student["age"] = 19
 print("After modifying age:", student)
 
 # Remove a key-value pair
