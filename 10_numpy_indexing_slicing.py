@@ -1,3 +1,4 @@
+"""Day 2: NumPy indexing, slicing, view vs copy, boolean masking, and reshape."""
 import numpy as np 
 nums = np.array([1, 2, 3, 4, 5])
 print(nums[0])  # Access the first element
