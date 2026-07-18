@@ -1,7 +1,7 @@
-import numpy as np 
 """Day 1: NumPy array creation, dtype behavior, and basic attributes."""
-evens = np.arange(2,22,2)
+import numpy as np 
 
+evens = np.arange(2,22,2)
 print(evens)
 zeros_grid = np.zeros((3,3))
 print(zeros_grid)
