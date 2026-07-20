@@ -23,6 +23,8 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 11 | NumPy Array Operations | `11_numpy_array_operations.py` | ✅ Complete |
 | 12 | NumPy Broadcasting | `12_numpy_broadcasting.py` | ✅ Complete |
 | 13 | Pathlib Practice | `13_pathlib_practice.py` | ✅ Complete |
+| 14 | NumPy Aggregations | `14_numpy_aggregations.py` | ✅ Complete |
+| 15 | Shutil Practice | `15_shutil_practice.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
@@ -61,7 +63,7 @@ python 02_data_types.py
 - ✅ Lists & Dictionaries
 - ✅ Object Oriented Programming
 - ✅ File Handling
-- ✅ NumPy Basics & Advanced (indexing, operations, broadcasting)
+- ✅ NumPy Basics & Advanced (indexing, operations, aggregations, broadcasting)
 - ✅ Standard library modules & tooling: `pathlib`, `shutil`, `os`, `datetime`, `argparse`, `logging`
 
 ## 👩‍💻 Author
