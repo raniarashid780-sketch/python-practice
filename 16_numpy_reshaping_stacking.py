@@ -9,6 +9,13 @@ print(np.hstack((a, b)))  # Horizontal stack
 grid = np.array([[1, 2, 3], [4, 5, 6]])
 print(grid.flatten())  # Flatten the 2D array into a 1D array
 print(grid.ravel())  # Another way to flatten the array
+flat_copy = grid.flatten()
+flat_copy[0] = 999
+print(grid)   # unchanged — flatten made a real copy
+
+raveled_view = grid.ravel()
+raveled_view[0] = 999
+print(grid)   # changed — ravel returned a view
 # the difference between flatten and ravel is that flatten returns a copy of the array, while ravel returns a view of the array whenever possible.
 # This means that modifying the result of ravel may affect the original array, while modifying the result of flatten will not.
 print(np.split(np.arange(12), 4))  # Split an array of 12 elements into 4 equal parts
