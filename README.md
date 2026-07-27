@@ -29,7 +29,8 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 17 | NumPy Linear Algebra | `17_numpy_linalg.py` | ✅ Complete |
 | 18 | NumPy Random | `18_numpy_random.py` | ✅ Complete |
 | 19 | NumPy Mini Project | `19_numpy_mini_project.py` | ✅ Complete |
-| 20 | Pandas Series, DataFrames & Basic Data Handling | `20_pandas_series_dataframes.py` | ✅ Complete |
+| 20 | Pandas Series and DataFrame  | `20_pandas_series_dataframes.py` | ✅ Complete |
+| 21 | Pandas CSV & I/O | `21_pandas_csv_io.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
