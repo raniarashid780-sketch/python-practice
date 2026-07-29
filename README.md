@@ -32,7 +32,7 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 20 | Pandas Series and DataFrame  | `20_pandas_series_dataframes.py` | ✅ Complete |
 | 21 | Pandas CSV & I/O | `21_pandas_csv_io.py` | ✅ Complete |
 | 22 | Pandas Selection & Filtering | `22_pandas_selection_filtering.py` | ✅ Complete |
-| 2 | Pandas Column operations & apply | `23_pandas_column_apply.py` | ✅ Complete |
+| 23 | Pandas Column operations & apply | `23_pandas_column_apply.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
