@@ -34,6 +34,7 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 22 | Pandas Selection & Filtering | `22_pandas_selection_filtering.py` | ✅ Complete |
 | 23 | Pandas Column operations & apply | `23_pandas_column_apply.py` | ✅ Complete |
 | 24 | Pandas Missing data handling | `24_pandas_missing_data.py` | ✅ Complete |
+| 25 | Pandas groupby | `25_pandas_groupby.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
