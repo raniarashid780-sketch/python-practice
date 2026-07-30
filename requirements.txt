@@ -1,2 +1,3 @@
 # Required packages for examples
 numpy
+pandas
