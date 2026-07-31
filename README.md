@@ -36,6 +36,7 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 24 | Pandas Missing data handling | `24_pandas_missing_data.py` | ✅ Complete |
 | 25 | Pandas groupby | `25_pandas_groupby.py` | ✅ Complete |
 | 26 | Pandas Merge & Join | `26_pandas_merge_join.py` | ✅ Complete |
+| 27 | Pandas Sort, Rank & Valuecount | `27_pandas_sort_rank_valuecounts.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
