@@ -37,6 +37,7 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 25 | Pandas groupby | `25_pandas_groupby.py` | ✅ Complete |
 | 26 | Pandas Merge & Join | `26_pandas_merge_join.py` | ✅ Complete |
 | 27 | Pandas Sort, Rank & Valuecount | `27_pandas_sort_rank_valuecounts.py` | ✅ Complete |
+| 28 | Pandas Pivot table, str & Datetime | `28_pandas_pivot_str_datetime.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
