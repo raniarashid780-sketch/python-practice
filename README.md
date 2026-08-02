@@ -39,6 +39,8 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 27 | Pandas Sort, Rank & Valuecount | `27_pandas_sort_rank_valuecounts.py` | ✅ Complete |
 | 28 | Pandas Pivot table, str & Datetime | `28_pandas_pivot_str_datetime.py` | ✅ Complete |
 | 29 | Pandas Mini Project | `29_pandas_mini_project.py` | ✅ Complete |
+| 30 | Matplotlib Basics | `30_matplotlib_basics.py` | ✅ Complete |
+| 30 | Matplotlib Chart types | `31_matplotlib_chart_types.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
@@ -78,6 +80,7 @@ python 02_data_types.py
 - ✅ Object Oriented Programming
 - ✅ File Handling
 - ✅ NumPy Basics & Advanced (indexing, reshaping, stacking, operations, aggregations, broadcasting, linear algebra, random)
+- ✅ Matplotlib (plotting, figure and axes handling)
 - ✅ Pandas Basics & Data Handling (Series, DataFrames, indexing, selection, and basic data operations)
 - ✅ Standard library modules & tooling: `pathlib`, `shutil`
 
