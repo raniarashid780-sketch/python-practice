@@ -40,7 +40,9 @@ My Python learning journey as a BS AI student at Ghazi University DG Khan, Pakis
 | 28 | Pandas Pivot table, str & Datetime | `28_pandas_pivot_str_datetime.py` | ✅ Complete |
 | 29 | Pandas Mini Project | `29_pandas_mini_project.py` | ✅ Complete |
 | 30 | Matplotlib Basics | `30_matplotlib_basics.py` | ✅ Complete |
-| 30 | Matplotlib Chart types | `31_matplotlib_chart_types.py` | ✅ Complete |
+| 31 | Matplotlib Chart types | `31_matplotlib_chart_types.py` | ✅ Complete |
+| 32 | Matplotlib Styling | `32_matplotlib_styling.py` | ✅ Complete |
+| 33 | Matplotlib Subplots | `33_matplotlib_subplots.py` | ✅ Complete |
 | — | Student Grade Calculator | `grade_calculator.py` | ✅ Complete |
 
 ## 🚀 Getting Started
