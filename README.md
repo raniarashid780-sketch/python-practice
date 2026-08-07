@@ -31,9 +31,13 @@ python pandas/20_pandas_series_dataframes.py
 ```
 
 For SQL practice:
+- This project is set up for PostgreSQL, not SQLite.
+- Use your own PostgreSQL database and client to run the SQL files in `sql-practice`.
+- Example using `psql`:
+
 ```bash
 cd sql-practice
-python run_sql.py
+psql -f day01.sql -d your_database_name
 ```
 
 ## Author
