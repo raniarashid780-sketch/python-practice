@@ -13,8 +13,10 @@ SELECT * FROM jobs;
 -- Task 2: Only title and budget columns
 SELECT  title, budget FROM jobs;
 
+
 -- Task 3: Jobs where budget > 500
-SELECT * FROM jobs WHERE budget > 500;
+SELECT * FROM jobs
+WHERE REPLACE(budget, '$', '')::NUMERIC > 500;
 
 -- Task 4: Jobs where category = 'Automation
 -- Remember: case sensitive
@@ -22,5 +24,6 @@ SELECT * FROM jobs WHERE category = 'Automation';
 
 -- Task 5: Return title and a new column called daily_rate
 -- which is budget divided by 30
-SELECT title, budget, budget/ 30 AS daily_rate
-FROM jobs:
+SELECT title, budget,
+       REPLACE(budget, '$', '')::NUMERIC / 30 AS daily_rate
+FROM jobs;
