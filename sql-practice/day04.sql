@@ -2,27 +2,27 @@
 -- Return all jobs sorted by budget highest to lowest
 -- Cast budget to NUMERIC before sorting
 SELECT * FROM jobs
-ORDER BY REPLACE(budget, '$', '')::NUMERIC DESC;
+ORDER BY REPLACE(budget, '$', '')::NUMERIC DESC NULLS LAST;
 
 -- Task 2:
 -- Return only the top 3 highest budget jobs
 -- Show title and budget only
 SELECT title, budget FROM jobs
-ORDER BY REPLACE(budget, '$', '')::NUMERIC DESC LIMIT 3;
+ORDER BY REPLACE(budget, '$', '')::NUMERIC DESC LIMIT 3 NULLS LAST;
 
 
 -- Task 3:
 -- Return unique list of all categories in your dataset
 -- Sort them alphabetically A to Z
 SELECT DISTINCT category FROM jobs
-ORDER BY category;
+ORDER BY category ASC;
 
 -- Task 4:
 -- Return top 5 jobs sorted by budget descending
 -- BUT skip the first 2 rows (use OFFSET)
 -- Think: what is this simulating in a real app?
 SELECT * FROM jobs
-ORDER BY REPLACE(budget, '$', '')::NUMERIC DESC LIMIT 5 OFFSET 2;
+ORDER BY REPLACE(budget, '$', '')::NUMERIC DESC LIMIT 5 OFFSET 2 NULLS LAST;
 
 
 -- Task 5:
@@ -31,4 +31,4 @@ ORDER BY REPLACE(budget, '$', '')::NUMERIC DESC LIMIT 5 OFFSET 2;
 -- Show title, category, budget
 SELECT title, category, budget FROM jobs
 ORDER BY category,
-    REPLACE(budget, '$', '')::NUMERIC DESC;
+    REPLACE(budget, '$', '')::NUMERIC DESC NULLS LAST;
