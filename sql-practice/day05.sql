@@ -11,13 +11,13 @@ FROM jobs;
 -- Round to 2 decimal places
 -- Alias it avg_budget
 SELECT ROUND(AVG(REPLACE(budget, '$', '')::NUMERIC), 2) AS avg_budget
-FROM job;
+FROM jobs;
 -- Task 3:
 -- What is the minimum and maximum budget in the entire table?
 -- Show both in one query
 -- Alias them min_budget and max_budget
 SELECT MAX(REPLACE(budget, '$', '')::NUMERIC) AS max_budget,
-    MIN(REPLACE(budget, '$', '')::NUMERIC) AS min_budget,
+    MIN(REPLACE(budget, '$', '')::NUMERIC) AS min_budget
 FROM jobs;
 
 -- Task 4:
@@ -26,7 +26,7 @@ FROM jobs;
 -- BUT only for jobs in your most common category
 -- (run SELECT DISTINCT category first to pick one that has many rows)
 SELECT SUM(REPLACE(budget, '$', '')::NUMERIC) AS total_budget,
-    AVG(REPLACE(budget, '$', '')::NUMERIC) AS avg_budget,
+    AVG(REPLACE(budget, '$', '')::NUMERIC) AS avg_budget
 FROM jobs
 WHERE category = (SELECT category FROM jobs GROUP BY category ORDER BY COUNT(*) DESC LIMIT 1);
 
