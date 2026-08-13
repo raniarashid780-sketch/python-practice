@@ -2,6 +2,10 @@
 -- Find all jobs where budget IS NULL
 -- Show title and experience
 
+SELECT title, experience
+FROM jobs
+WHERE budget IS NULL;
+
 -- Task 2:
 -- Find all jobs where budget IS NOT NULL
 -- Show title, budget, category
@@ -18,7 +22,7 @@ ORDER BY category ASC;
 -- Show ALL rows including previously NULL ones
 
 SELECT title,
-    COALESCE(REPLACE(budget, '$', '')::NUMERIC, 0) AS clean_budget
+    COALESCE(budget, '$0') AS clean_budget
 FROM jobs;
 
 -- Task 4:
@@ -27,9 +31,8 @@ FROM jobs;
 -- Use table alias 'j' for jobs
 -- Round daily_rate to 2 decimal places
 
-SELECT
-    j.title,
-    COALESCE(ROUND(REPLACE(j.budget, '$', '')::NUMERIC / 30, 2), 0) AS daily_rate
+SELECT j.title,
+    ROUND(COALESCE(REPLACE(j.budget, '$', '')::NUMERIC, 0) / 30, 2) AS daily_rate
 FROM jobs j;
 
 -- Task 5:
