@@ -16,7 +16,7 @@ ORDER BY REPLACE(budget, '$', '')::NUMERIC DESC NULLS LAST;
 
 --CTE
 WITH avg_budget AS (
-    SELECT AVG(REPLACE(budget, '$', '')::NUMERIC)
+    SELECT AVG(REPLACE(budget, '$', '')::NUMERIC) AS avg
     FROM jobs
     WHERE budget IS NOT NULL
 )
@@ -73,10 +73,10 @@ category_stats AS(
     FROM clean_jobs
     GROUP BY category
 )
-SELECT *
+SELECT category, avg_budget
 FROM category_stats
-WHERE job_count > 2
-ORDER BY avg_budget DESC NULLS LAST;
+ORDER BY avg_budget DESC NULLS LAST
+LIMIT 3;
 
 -- Task 5:
 -- Write a chained CTE:
