@@ -14,7 +14,7 @@ Structured Python practice covering core programming, data manipulation, visuali
 | `NumPy/` | Array operations, broadcasting, linear algebra, mini-project |
 | `pandas/` | DataFrames, cleaning, groupby, merging, mini-project |
 | `matplotlib/` | Charts, styling, subplots |
-| `sql-practice/` | SQLite exercises (14-day track) |
+| `sql-practice/` | PostgreSQL exercises (14-day track), completed with the Smart Care Clinic capstone |
 
 ## Setup
 
