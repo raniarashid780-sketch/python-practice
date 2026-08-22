@@ -15,6 +15,7 @@ Structured Python practice covering core programming, data manipulation, visuali
 | `pandas/` | DataFrames, cleaning, groupby, merging, mini-project |
 | `matplotlib/` | Charts, styling, subplots |
 | `sql-practice/` | PostgreSQL exercises (14-day track), completed with the Smart Care Clinic capstone |
+| `fastapi-practice/` | FastAPI path parameters, query parameters, validation, and Swagger UI |
 
 ## Setup
 
@@ -39,6 +40,21 @@ For SQL practice:
 cd sql-practice
 psql -f day01.sql -d your_database_name
 ```
+
+For FastAPI practice:
+- Activate the virtual environment before running the API.
+- Start the development server from the `fastapi-practice` directory:
+
+```bash
+cd fastapi-practice
+uvicorn day01_basics:app --reload --port 8001
+```
+
+- Open `http://127.0.0.1:8001/docs` to test the endpoints in Swagger UI.
+- `GET /items/{item_id}` demonstrates typed path parameters and returns the item ID and its Python type.
+- `GET /search` demonstrates a required query parameter and an optional query parameter with a default value.
+- `GET /items/{item_id}/reviews` demonstrates a typed path parameter and an optional float query parameter.
+- Invalid values such as `/items/abc` or `min_rating=abc` return HTTP `422` because FastAPI validation rejects values with the wrong type.
 
 ## Author
 
