@@ -52,9 +52,9 @@ class InsufficientQuantityError(Exception):
 # If you raise InsufficientQuantityError without a custom handler, the client will receive a 500 Internal Server Error response with a generic error message. The response will not include any specific details about the error, such as the item_id, requested_qty, or available_qty. This is because FastAPI does not know how to handle this custom exception by default, and it treats it as an unhandled exception.
 @app.post("/items/{item_id}/purchase")
 def purchase_item(item_id: int, qty: int):
-    item = items_db.get(item_id)
     if item_id not in items_db:
         raise HTTPException(status_code=404, detail="Item not found")
+    item = items_db[item_id]
     if qty > item.quantity:
         raise InsufficientQuantityError(item_id, qty, item.quantity)
     item.quantity -= qty
@@ -80,6 +80,7 @@ def out_of_stock_handler(request: Request, exc: InsufficientQuantityError):
 # - Purchase from a nonexistent item_id (should still return the plain 404 from Task 3 — confirm HTTPException and your custom handler coexist without conflict)
 
 # I tested the endpoints via /docs and confirmed the following behaviors:
-# - Purchasing a valid quantity succeeds, and the item's quantity decreases accordingly.
-# - Purchasing more than the available quantity returns a 409 Conflict response with the custom error message, indicating that the requested quantity exceeds the available stock.
-# - Purchasing from a nonexistent item_id returns a 404 Not Found response, as expected, and the custom handler for InsufficientQuantityError does not interfere with this behavior.
+# POST /items with a real body, e.g. {"name": "Pen", "price": 1.5, "quantity": 10, "in_stock": true} — the id I got back = 1
+# POST /items/{that_id}/purchase?qty=3 —  status code : 200, body: {"name": "Pen", "price": 1.5, "quantity": 7, "in_stock": true}
+# POST /items/{that_id}/purchase?qty=999  —  status: 409, body: {"error": "out_of_stock", "item_id": 1, "requested_qty": 999, "available_qty": 7}
+# POST /items/999999/purchase?qty=1 — status: 404, body: {"detail": "Item not found"}
