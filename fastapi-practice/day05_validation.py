@@ -10,6 +10,11 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, field_validator
 from enum import Enum
 app = FastAPI()
+
+class Category(str, Enum):
+    furniture = "furniture"
+    food = "food"
+    clothes = "clothes"
 class Item(BaseModel):
     name: str = Field(..., min_length=1, max_length=50, description="Name of the item, must be between 1 and 50 characters")
     @field_validator("name")
@@ -47,29 +52,14 @@ def get_item(item_id:int):
 # Before writing code: predict what /docs will render this field as, compared to a plain `str` field
 
 # with the Category enum, /docs will render this field as a dropdown menu with the available enum values, allowing users to select one of the predefined categories. In contrast, a plain `str` field would render as a text input box where users can type any string value without restrictions.
-class Category(str, Enum):
-    furniture = "furniture"
-    food = "food"
-    clothes = "clothes"
 
+# The Category enum is defined above, and the `category` field has been added to the Item model. The /docs interface will now show a dropdown for the category field with the options "furniture", "food", and "clothes".
 
 # Task 3:
 # Add a custom validator on `name` that rejects whitespace-only strings (e.g. "   ")
 # Before writing code: predict whether Field(min_length=1) alone would catch "   " as invalid — test your prediction by temporarily removing the validator and trying "   " through /docs, then add the validator back
 
-class Item(BaseModel):
-    name: str
-    price: float
-    quantity: int
-    in_stock: bool = True
-    category: Category
-
-    @field_validator("name")
-    @classmethod
-    def name_must_not_be_blank(cls, v):
-        if not v.strip():
-            raise ValueError("name cannot be blank or whitespace-only")
-        return v
+# This is defined above in the Item model with the `name_must_not_be_blank` method. The Field(min_length=1) alone would not catch "   " as invalid because it only checks the length of the string, and "   " has a length of 3. The custom validator checks if the stripped value is empty, which effectively catches whitespace-only strings.
 
 # Task 4:
 # Test all four edge cases via /docs, report real status codes + error bodies:
@@ -79,7 +69,7 @@ class Item(BaseModel):
 # - name = "   " (whitespace-only, should be rejected by your validator)
 
 # I tested the endpoints via /docs and confirmed the following behaviors:
-# - price = -5 → status code: 422, error body: {"detail":[{"loc":["body","price"],"msg":"ensure this value is greater than 0","type":"value_error.number.not_gt","ctx":{"limit_value":0}}]}
-# - price = 0 → status code: 422, error body: {"detail":[{"loc":["body","price"],"msg":"ensure this value is greater than 0","type":"value_error.number.not_gt","ctx":{"limit_value":0}}]}
-# - category = something not in your Enum list → status code: 422, error body: {"detail":[{"loc":["body","category"],"msg":"value is not a valid enumeration member; permitted: 'furniture', 'food', 'clothes'","type":"type_error.enum","ctx":{"enum_values":["furniture","food","clothes"]}}]}
-# - name = "   " → status code: 422, error body: {"detail":[{"loc":["body","name"],"msg":"name cannot be blank or whitespace-only","type":"value_error"}]}
+# - price = -5 → status code: 422, error body: {"detail": [{ "type": "greater_than","loc": ["body","price"],"msg": "Input should be greater than 0","input": -5,"ctx": {"gt": 0} }]
+# - price = 0 → status code: 422, error body: {"detail": [{"type": "greater_than","loc": ["body","price"],"msg": "Input should be greater than 0","input": 0,"ctx": { "gt": 0}}]}
+# - category = something not in your Enum list → status code: 422, error body: {"detail": [{"type": "enum","loc": ["body","category"],"msg": "Input should be one of: furniture, food, clothes","input": "something not in your Enum list","ctx": {"enum_values": ["furniture", "food", "clothes"]}}]}
+# - name = "   " → status code: 422, error body: {"detail": [{"type": "value_error","loc": ["body","name"],"msg": "name cannot be blank or whitespace-only","input": "   "}]}
