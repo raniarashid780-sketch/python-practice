@@ -3,17 +3,29 @@
 # Create a dependency function get_item_or_404(item_id: int) -> Item that raises 404 or returns the item
 
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from fastapi.responses import JSONResponse
 from fastapi import Request
+from enum import Enum
 app = FastAPI()
 from fastapi import Depends
 
+class Category(str, Enum):
+    furniture = "furniture"
+    food = "food"
+    clothes = "clothes"
 class Item(BaseModel):
-    name: str = Field(..., min_length=1, max_length=50)
-    price: float = Field(..., gt=0)
-    quantity: int = Field(..., ge=0)
+    name: str = Field(..., min_length=1, max_length=50, description="Name of the item, must be between 1 and 50 characters")
+    @field_validator("name")
+    @classmethod
+    def name_must_not_be_blank(cls, v):
+        if not v.strip():
+            raise ValueError("name cannot be blank or whitespace-only")
+        return v
+    price: float = Field(..., gt=0, description="Price of the item, must be greater than 0")
+    quantity :int = Field(..., ge=0, description="Quantity of the item in stock, must be greater than or equal to 0")
     in_stock: bool = True
+    category: Category
 
 items_db: dict[int, Item] = {}
 next_id = 1
@@ -33,7 +45,7 @@ def get_item_or_404(item_id: int) -> Item:
 def get_item(item: Item = Depends(get_item_or_404)):
     return item
 
-@app.post("/items" ,status_code=201)
+@app.post("/items", status_code=201)
 def create_item(item: Item):
     global next_id
     items_db[next_id] = item
@@ -72,4 +84,4 @@ def out_of_stock_handler(request: Request, exc: InsufficientQuantityError):
 
 # For /items/{item_id}/purchase
 # Valid item_id: 200 OK, Response body{"message": "Purchased 9 of furniture. Remaining stock: 1"}
-# Invalid item_id: 409Error: Conflict, Response body{"error": "out_of_stock","item_id": 1,"requested_qty": 11,"available_qty": 1}
+# Invalid item_id: 404 ,  Response body {"detail": "Item not found"}
