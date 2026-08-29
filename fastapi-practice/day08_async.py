@@ -20,7 +20,10 @@ async def async_delay():
     await asyncio.sleep(3)
     return {"type": "async", "done": True}
 
-
+@app.get("/broken-async-delay")
+async def broken_async_delay():
+    time.sleep(3)   # <-- blocking call inside async def — this is the trap
+    return {"type": "broken_async", "done": True}
 # Task 2:
 # Before testing: predict — if you open two browser tabs and hit /sync-delay in both at nearly the same time, do they finish at the same time or one after another? Same question for /async-delay.
 # Test it for real: open two tabs, hit /sync-delay in both simultaneously, time it. Repeat for /async-delay.
