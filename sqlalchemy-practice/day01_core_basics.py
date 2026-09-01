@@ -38,8 +38,17 @@ for row in result:
 # - Predict: will your inserted row be there or not? Write the prediction and the reasoning before running — this is the whole point of today's syntax note on commit()
 
 # I predict that the inserted row will not be there when I reopen a new connection and SELECT again. This is because I did not call conn.commit() after the INSERT operation, which means that the changes made during that transaction will not be saved to the database. When the connection is closed, any uncommitted changes will be rolled back, and therefore the inserted row will not persist in the database.
-conn.execute(text("INSERT INTO patients (name, age) VALUES (:name, :age)"), {"name": "Test Patient", "age": 30})
-conn.close()
+with engine.connect() as conn:
+    conn.execute(
+        text("INSERT INTO patients (name, age) VALUES (:name, :age)"),
+        {"name": "Test Patient", "age": 30},
+    )
+    # deliberately NOT calling conn.commit()
+
+with engine.connect() as conn:
+    result = conn.execute(text("SELECT * FROM patients WHERE name = :name"), {"name": "Test Patient"})
+    rows = result.fetchall()
+    print(f"Task 3 verification — rows found: {len(rows)}")  # should print 0 if prediction correct
 
 # Task 4:
 # - Repeat the insert, this time calling conn.commit()
@@ -48,8 +57,20 @@ conn.close()
 # - Clean up: DELETE your test row so you don't pollute the real table, and commit that too
 
 # I predict that the inserted row will be there when I reopen a new connection and SELECT again. This is because I will call conn.commit() after the INSERT operation, which will save the changes made during that transaction to the database. When the connection is closed, the committed changes will persist in the database, and therefore the inserted row will be present when I query the table again.
-conn = engine.connect()
-conn.execute(text("INSERT INTO patients (name, age) VALUES (:name, :age)"), {"name": "Test Patient", "age": 30})
-conn.commit()
-conn.execute(text("DELETE FROM patients WHERE name = :name"), {"name": "Test Patient"})
-conn.commit()
+with engine.connect() as conn:
+    conn.execute(
+        text("INSERT INTO patients (name, age) VALUES (:name, :age)"),
+        {"name": "Test Patient", "age": 30},
+    )
+    conn.commit()
+
+with engine.connect() as conn:
+    result = conn.execute(text("SELECT * FROM patients WHERE name = :name"), {"name": "Test Patient"})
+    rows = result.fetchall()
+    print(f"Task 4 verification — rows found: {len(rows)}")  # should print 1 if prediction correct
+
+with engine.connect() as conn:
+    conn.execute(text("DELETE FROM patients WHERE name = :name"), {"name": "Test Patient"})
+    conn.commit()
+    result = conn.execute(text("SELECT * FROM patients WHERE name = :name"), {"name": "Test Patient"})
+    print(f"Cleanup verification — rows remaining: {len(result.fetchall())}")  # should be 0
