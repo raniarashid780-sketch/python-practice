@@ -36,6 +36,3 @@ class Appointment(Base):
     reason: Mapped[str]
 
     patient: Mapped["Patient"] = relationship(back_populates="appointments")
-
-Base.metadata.drop_all(engine)   # drops patients + appointments (FK-aware order)
-Base.metadata.create_all(engine)
