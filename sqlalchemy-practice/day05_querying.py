@@ -23,10 +23,7 @@ session = Session(engine)
 # .scalars().all() is needed here because we are selecting a single column (Patient) and want to retrieve the results as a list of Patient objects. Using plain .all() would return a list of Row objects, which would require additional unpacking to access the Patient instances. By using .scalars(), we directly get the Patient instances without the need for further processing.
 stmt = select(Patient).where(Patient.age > 30)
 patients = session.execute(stmt).scalars().all()
-
-# specific columns back → plain .all(), you get row-tuples
-stmt = select(Patient.name, Appointment.reason).join(Appointment)
-rows = session.execute(stmt).all()
+print([patient.name for patient in patients])  # This will print the names of patients over age 30.
 
 # Task 2:
 # - Join Patient + Appointment, select patient name + appointment reason
