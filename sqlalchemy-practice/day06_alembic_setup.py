@@ -1,9 +1,3 @@
-"""Alembic Day 6 worksheet.
-
-Run these commands from the sqlalchemy-practice directory. Do not run this
-file as the migration command; Alembic reads the configuration and models.
-"""
-
 # Before running the first command, predict the result:
 # The patients and appointments tables already exist, so the initial
 # migration should be empty if the database schema matches models.py.

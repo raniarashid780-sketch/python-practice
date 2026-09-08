@@ -25,8 +25,11 @@ class Patient(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str]
     age: Mapped[int]
+    phone: Mapped[str | None]
 
-    appointments: Mapped[List["Appointment"]] = relationship(back_populates="patient")
+    appointments: Mapped[List["Appointment"]] = relationship(
+        back_populates="patient"
+    )
 
 class Appointment(Base):
     __tablename__ = "appointments"
