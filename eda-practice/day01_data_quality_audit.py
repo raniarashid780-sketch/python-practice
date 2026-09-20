@@ -57,6 +57,7 @@ print(df.duplicated().sum())
 
 print("Unique values")
 print(df.nunique())
+#  the columns survived, alive, pclass, sex, who, embarked needs to be category becuase they only have 2-3 unique values
 
 # Task 5: Validity / range check (the placeholder-hunting step)
 # - For every NUMERIC column: print min and max. Flag anything impossible
@@ -135,7 +136,9 @@ Recommendation:
 - `deck`: likely drop or treat as low-value because it is too incomplete.
 - `who/adult_male`: are somehow common but not exact duplicate who tells the person is woman, man, or child and adult_male just tells is it adultmale or not.
 - `pclass`, `survived`, `sex`, and similar columns: convert to category when useful for analysis.
-
+# survived/alive: keep survived, drop alive, because both tells exact same thing
+# pclass/class: keep pclass, drop class, because both tells same thing one teels in form of numbers other tells in form of text
+# who/adult_male: keep who, drop adult_male, because they are lossy duplicate not perfect
 Overall: the dataset is good for learning and basic EDA, but it still needs a bit of cleaning before deeper analysis or modeling.
 """
 
