@@ -57,3 +57,5 @@ print(pd.crosstab(df['sex'], df['survived'], normalize='index'))
 # Pclass did not cause survival; physical proximity to the lifeboats did.
 # Pclass was a strong stand-in for that proximity because first-class cabins
 # were located on the upper decks.
+# Fare-by-class: 1st class averages ~4x 2nd class fare and ~6x 3rd class fare — confirms prediction.
+# Sex/survival: females survived at 74.2% vs males at 18.9%, a 55-point gap — strongest pattern in the dataset.
