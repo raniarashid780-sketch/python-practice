@@ -28,6 +28,7 @@ print(f"Median of age column :{df['age'].median()}")
 
 sns.histplot(df['age'])
 plt.show()
+# the graph looks bell shaped exactly i expeted it
 
 # Task 3: Skewness, with a number not just a picture
 # - Compute df['fare'].skew() and df['age'].skew()
@@ -49,7 +50,7 @@ print(f"Sex:{df['sex'].value_counts(normalize=True)}")
 print(f"Embarked:{df['embarked'].value_counts()}")
 print(f"Embarked:{df['embarked'].value_counts(normalize=True)}")
 
-print("The 3rd class dominates the dataset with 3rd class = 491, 2nd class = 216 and 1st class = 184 it was expected from previous analysis.")
+print("The 3rd class dominates the dataset with 3rd class = 491, 2nd class = 184 and 1st class = 216 it was expected from previous analysis.")
 print("The sex that dominates the dataset is male with male = 577 and female = 314")
 print("The most dominated port is S")
 
