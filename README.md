@@ -6,18 +6,55 @@
 
 Structured Python practice covering core programming, data manipulation, visualization, and SQL — progressing toward NLP and LLM engineering.
 
-## Structure
+## Project Overview
 
-| Folder | Contents |
-|---|---|
-| `python-core/` | Variables, OOP, file handling, pathlib, shutil |
-| `NumPy/` | Array operations, broadcasting, linear algebra, mini-project |
-| `pandas/` | DataFrames, cleaning, groupby, merging, mini-project |
-| `matplotlib/` | Charts, styling, subplots |
-| `sql-practice/` | PostgreSQL exercises (14-day track), completed with the Smart Care Clinic capstone |
-| `sqlalchemy-practice/` | SQLAlchemy basics, database models, and ORM learning examples |
-| `fastapi-practice/` | FastAPI path parameters, query parameters, validation, and Swagger UI |
-| `docker/` | Container basics and Dockerized app examples |
+This repository is a structured Python learning path covering Python fundamentals, data analysis, SQL, ORM, API development, and hands-on practice. It is designed as a beginner-friendly collection of short lesson scripts and mini-projects rather than a single large application.
+
+The current focus is on building practical skills in:
+- Python basics and scripting
+- Exploratory Data Analysis (EDA)
+- NumPy, pandas, and matplotlib
+- SQL and SQLAlchemy
+- FastAPI application development
+
+## Current Repository Structure
+
+| Folder | Contents | Status |
+|---|---|---|
+| `python-core/` | Variables, data types, conditions, loops, functions, OOP, files, pathlib, shutil | Completed |
+| `NumPy/` | Arrays, indexing, broadcasting, reshaping, linear algebra, random operations | Completed |
+| `pandas/` | Series/dataframes, CSV I/O, filtering, missing data, groupby, merge, pivot, datetime manipulation | Completed |
+| `matplotlib/` | Plotting basics, chart types, styling, subplots | Completed |
+| `eda-practice/` | Data quality audits, missing-value handling, outlier detection, univariate/bivariate analysis, question framing, feature-signal review | In progress |
+| `sql-practice/` | PostgreSQL exercises and SQL learning track | Completed |
+| `sqlalchemy-practice/` | ORM basics, models, sessions, relationships, querying, Alembic setup | Completed |
+| `fastapi-practice/` | FastAPI basics, validation, dependencies, async patterns, Swagger testing | Completed |
+| `docker/` | Container basics, Docker setup, and image/container workflow practice | In progress |
+
+## Learning Progress
+
+### Python and Data Foundations
+- Core Python scripting and logic practice in `python-core/`
+- `NumPy/` for numerical operations and array thinking
+- `pandas/` for data manipulation and dataset analysis
+- `matplotlib/` for charting and data storytelling
+
+### EDA Track
+The `eda-practice/` folder is the active workstream for exploratory data analysis and real-world data understanding.
+
+Current EDA topics include:
+- Data quality audit
+- Handling missing values and imputation
+- Outlier detection
+- Univariate and bivariate analysis
+- Question framing and chart selection
+- Feature signal and business interpretation
+
+### Database, API, and Docker Track
+- SQL exercises in `sql-practice/`
+- ORM work in `sqlalchemy-practice/`
+- REST API learning in `fastapi-practice/`
+- Docker and container workflow practice for deployment and environment setup
 
 ## Setup
 
@@ -31,6 +68,15 @@ pip install -r requirements.txt
 python python-core/01_variables_and_print.py
 python NumPy/09_numpy_basics.py
 python pandas/20_pandas_series_dataframes.py
+```
+
+For EDA practice:
+- Start with the raw data file in the project root: `Messy_Employee_dataset.csv`
+- Explore the scripts in `eda-practice/` in order
+- Example:
+
+```bash
+python eda-practice/day01_data_quality_audit.py
 ```
 
 For SQL practice:
