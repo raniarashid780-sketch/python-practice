@@ -29,7 +29,7 @@ The current focus is on building practical skills in:
 | `sql-practice/` | PostgreSQL exercises and SQL learning track | Completed |
 | `sqlalchemy-practice/` | ORM basics, models, sessions, relationships, querying, Alembic setup | Completed |
 | `fastapi-practice/` | FastAPI basics, validation, dependencies, async patterns, Swagger testing | Completed |
-| `docker/` | Container basics, Docker setup, and image/container workflow practice | In progress |
+| `docker/` | Container basics, Docker setup, and image/container workflow practice | Completed |
 
 ## Learning Progress
 
