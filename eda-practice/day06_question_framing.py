@@ -26,6 +26,7 @@
 # Day 5: Age and fare have a weak positive correlation (about 0.10). This does not show whether either feature predicts survival because it measures the relationship between age and fare, not either feature's relationship with the target.
 # Day 5: Survival differs by passenger class by about 39 percentage points (first class about 63%, third class about 24%). This is relevant because it is a substantial observed association with the target.
 # Day 5: Survival differs by sex by about 55 percentage points (female about 74%, male about 19%). This is relevant because it is the strongest measured association with the target in these findings.
+# Day 5: Survival by embarkation port suggests a moderate pattern: Cherbourg passengers survived about 55.4% of the time, Queenstown about 39.0%, and Southampton about 33.7%, so embarked is a possible secondary feature but much weaker than sex or class.
 # Day 5: First-class average fare is about 4 times second-class fare and 6 times third-class fare. This does not directly show that fare predicts survival because fare is associated with pclass, so the relationship could reflect class rather than an independent fare effect.
 
 # Task 3: Rank candidate features by likely usefulness
@@ -35,8 +36,10 @@
 #   gap, the 38-point pclass gap) — not a guess, the actual evidence you
 #   already collected
 
-# My ranking, from most to least useful, is: 1. sex, 2. pclass, 3. fare,
-# 4. age, 5. embarked. I put sex first because the observed survival gap is
+# Ranking: 1. sex (55-pt gap), 2. pclass (39-pt gap), 3. embarked (22-pt gap,
+# but likely confounded with pclass/fare rather than an independent effect),
+# 4. fare (confounded with pclass), 5. age (near-zero relationship found)
+# I put sex first because the observed survival gap is
 # about 55 percentage points. I put pclass second because its observed
 # survival gap is about 39 percentage points. The evidence for the remaining
 # features is indirect or limited because fare differs by class, age-fare

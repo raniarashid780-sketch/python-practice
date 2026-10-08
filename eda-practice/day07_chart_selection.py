@@ -38,8 +38,12 @@ plt.show()
 sns.catplot(x='pclass', y='survived', hue='sex', kind='bar', data=df, estimator='mean')
 plt.title('Survival Rate by Class and Sex')
 plt.show()
-# The sex gap remains inside each class: women still survive much more often
-# than men in every class, even though the gap is not exactly the same in all classes.
+print(df.groupby(['pclass', 'sex'])['survived'].mean())
+# The survival gap by sex stays huge in every class: in 1st class, women survive
+# about 96.8% vs men about 36.8% (a gap of about 60 points); in 2nd class,
+# women survive about 92.1% vs men about 15.7% (a gap of about 76 points);
+# in 3rd class, women survive about 50.0% vs men about 13.5% (a gap of about
+# 36 points). The sex effect is strong in all classes, but it is largest in 2nd class.
 
 # Task 4: The pie chart test
 # Pie chart of pclass counts
@@ -50,8 +54,9 @@ plt.show()
 
 # Now compare with the bar chart from Task 2
 # The bar chart is easier to read because the eye can compare bar heights more
-# directly. It is clearer that 1st class has more passengers than 2nd class,
-# while pie slices are harder to compare visually when several categories are shown.
+# directly. For the exact 216-vs-184 comparison, the pie chart makes it hard to
+# see the difference because two nearby slices are awkward to compare by eye,
+# while the two bars are still easy to compare side by side.
 
 # Extra check: print raw counts to compare classes directly
 print(df['pclass'].value_counts())
