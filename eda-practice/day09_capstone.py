@@ -118,12 +118,11 @@ df.to_csv(Path(__file__).with_name("cafe_clean.csv"), index=False)
 # - Total: Quantity x Price -> 479 rows.   Quantity: Total / Price -> 456 rows, 0 bad values.
 # - Price from Total / Quantity -> 48 rows.   0 mismatches after repair.
 # - Dropped 26 rows (0.26%): two or more of Quantity/Price/Total missing, nothing to recover from.
-# - Item: 969 placeholder/NaN; recovered ??? where price is unique (1.0/1.5/2.0/5.0);
+# - Item: 969 placeholder/NaN in raw data; recovered 489 where price is unique (1.0/1.5/2.0/5.0);
 #   3.0 (Cake/Juice) and 4.0 (Sandwich/Smoothie) NOT guessed -> label 'Unknown'.
-# - Payment Method (3,178) and Location (3,961): kept as 'Unknown' category. Dropping would lose
-#   ~60% of rows; filling with the mode would invent ~1/3 of the column.
-# - Transaction Date: 460 unusable (4.6%) -> kept as NaT; excluded only from time charts.
-# - Duplicates: 0 duplicate rows, 10,000 unique Transaction IDs.
+# - Payment Method (3,168) and Location (3,952): counted after dropping 26 rows; kept as 'Unknown'.
+# - Transaction Date: [use the same number as the report] unusable -> kept as NaT; excluded only from time charts.
+# - Duplicates: 0 duplicate rows, 9,974 unique Transaction IDs.
 # ---------------------------------------------------------------------------
 
 # Task 3: Look for patterns
