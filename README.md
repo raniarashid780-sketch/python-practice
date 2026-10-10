@@ -1,19 +1,20 @@
-# Python Practice 🐍
+# Practice Lab 🐍
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-Structured Python practice covering core programming, data manipulation, visualization, and SQL — progressing toward NLP and LLM engineering.
+Structured practice covering Python, data manipulation, visualization, SQL, and machine learning — progressing toward NLP and LLM engineering.
 
 ## Project Overview
 
-This repository is a structured Python learning path covering Python fundamentals, data analysis, SQL, ORM, API development, and hands-on practice. It is designed as a beginner-friendly collection of short lesson scripts and mini-projects rather than a single large application.
+This repository is a structured learning path covering Python fundamentals, data analysis, machine learning, SQL, ORM, API development, and hands-on practice. It is designed as a beginner-friendly collection of short lesson scripts and mini-projects rather than a single large application.
 
 The current focus is on building practical skills in:
 - Python basics and scripting
 - Exploratory Data Analysis (EDA)
 - NumPy, pandas, and matplotlib
+- Scikit-learn and machine learning fundamentals
 - SQL and SQLAlchemy
 - FastAPI application development
 
@@ -26,6 +27,7 @@ The current focus is on building practical skills in:
 | `pandas/` | Series/dataframes, CSV I/O, filtering, missing data, groupby, merge, pivot, datetime manipulation | Completed |
 | `matplotlib/` | Plotting basics, chart types, styling, subplots | Completed |
 | `eda-practice/` | Data quality audits, missing-value handling, outlier detection, univariate/bivariate analysis, question framing, feature-signal review | In progress |
+| `sklearn-practice/` | Train/test splitting, stratification, baseline models, and classification metrics | In progress |
 | `sql-practice/` | PostgreSQL exercises and SQL learning track | Completed |
 | `sqlalchemy-practice/` | ORM basics, models, sessions, relationships, querying, Alembic setup | Completed |
 | `fastapi-practice/` | FastAPI basics, validation, dependencies, async patterns, Swagger testing | Completed |
@@ -50,6 +52,9 @@ Current EDA topics include:
 - Question framing and chart selection
 - Feature signal and business interpretation
 
+### Machine Learning Track
+- Scikit-learn practice in `sklearn-practice/`, starting with stratified train/test splits and a majority-class baseline
+
 ### Database, API, and Docker Track
 - SQL exercises in `sql-practice/`
 - ORM work in `sqlalchemy-practice/`
@@ -68,6 +73,7 @@ pip install -r requirements.txt
 python python-core/01_variables_and_print.py
 python NumPy/09_numpy_basics.py
 python pandas/20_pandas_series_dataframes.py
+python sklearn-practice/day01_split_baseline.py
 ```
 
 For EDA practice:
