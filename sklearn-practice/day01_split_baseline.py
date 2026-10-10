@@ -4,7 +4,7 @@ from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
-data =load_wine(as_frame=True)
+data = load_wine(as_frame=True)
 
 # Task 1:
 # - Load the wine dataset into X and y
@@ -14,26 +14,29 @@ data =load_wine(as_frame=True)
 
 X, y = data.data, data.target
 print(X.shape)
-print(y.value_counts().to_dict())
+print(y.value_counts().sort_index().to_dict())
 
 # Task 2:
-# - Split with test_size=0.25, random_state=7, stratify=yexpal
+# - Split with test_size=0.25, random_state=7, stratify=y
 # - Print len(X_train), len(X_test)
 # - Predict BEFORE running: how many rows in each?
 # - Print class counts of y_train and y_test. Why are they not exactly 75/25 per class? (answer in a comment)
-# Prediction: with 20% test size and 178 total rows, we expect about 142 rows in train and 36 in test.
-# The class counts will not be exactly 80/20 for each class because the dataset is not perfectly divisible by 5, and stratify keeps the proportions close but not exact.
+# Prediction: 25% of 178 is 44.5, so the test split should have 45 rows and the train split 133.
+# The full-data class counts are 59, 71, and 48. A quarter of each is 14.75, 17.75, and 12;
+# rows cannot be split, and the counts must total 45, so stratification keeps them close rather than exact.
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=7, stratify=y)
 print(len(X_train))
-print(X_test.shape)
+print(len(X_test))
+print(y_train.value_counts().sort_index().to_dict())
+print(y_test.value_counts().sort_index().to_dict())
 
 # Task 3:
 # - Fit DummyClassifier(strategy="most_frequent") on the TRAIN data
 # - Print its test accuracy
 # - Print set(baseline.predict(X_test))
 # - Predict BEFORE running: how many different values will that set contain, and why?
-# Prediction: the set will usually contain only one value, because the dummy baseline predicts the same majority class for every sample.
+# Prediction: the set will contain exactly one value because most_frequent predicts the training majority class for every sample.
 
 baseline = DummyClassifier(strategy="most_frequent")
 baseline.fit(X_train, y_train)
@@ -45,9 +48,10 @@ print(set(baseline.predict(X_test)))
 # - Print train accuracy AND test accuracy
 # - In a comment: does it beat the baseline? By how many points?
 # - In a comment: which is higher, train or test, and what does a big gap between them mean?
-# Prediction: the logistic regression model should beat the baseline by a large margin, roughly 50+ percentage points.
-# Training accuracy is usually higher than test accuracy. A big gap suggests overfitting: the model fits the training data very well but does not generalize as well to new data.
+# LogisticRegression test accuracy is 93.3% versus the 40.0% baseline, a gain of 53.3 percentage points.
+# Train accuracy is 100.0%, 6.7 points above test accuracy; a large gap can indicate overfitting.
 
+# Wine features have very different scales, so LogisticRegression may emit a ConvergenceWarning; scaling is covered on Day 12.
 model = LogisticRegression(max_iter=5000)
 model.fit(X_train, y_train)
 print(model.score(X_train, y_train))
@@ -58,8 +62,13 @@ print(model.score(X_test, y_test))
 # - Run it twice with NO random_state. Same or different?
 # - Comment: why does this matter when you report results to a client?
 # Explanation: with the same random_state, the split is reproducible and the same rows appear in the test set each time.
-# Without random_state, Python chooses a different random split every run, so your reported accuracy may change from one run to the next.
-# This matters in real reporting because results should be consistent and reproducible for fair comparisons and client communication.
+# Without random_state, sklearn/NumPy's random number generator produces a different split on each run.
+# Unreproducible results are hard to audit, and rerunning until a score looks flattering is test-set cheating.
 
-same_split = train_test_split(X, y, test_size=0.2, random_state=7, stratify=y)
-print(same_split[1].index.equals(X_test.index))  # Should be True
+same_split_first = train_test_split(X, y, test_size=0.25, random_state=7, stratify=y)
+same_split_second = train_test_split(X, y, test_size=0.25, random_state=7, stratify=y)
+print(same_split_first[1].index.equals(same_split_second[1].index))
+
+unseeded_split_first = train_test_split(X, y, test_size=0.25, stratify=y)
+unseeded_split_second = train_test_split(X, y, test_size=0.25, stratify=y)
+print(unseeded_split_first[1].index.equals(unseeded_split_second[1].index))
